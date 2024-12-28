@@ -6,12 +6,13 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { getPostById } from '@/utils/mdx';
+import React from 'react';
 
-export default async function Page({
-  params,
-}: {
-  params: { id: string }
-}) {
+type Props = {
+  params: { id: string };
+};
+
+export default async function Page({ params }: Props) {
   const post = await getPostById(params.id);
 
   if (!post) {
