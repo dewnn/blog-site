@@ -12,8 +12,8 @@ interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default function Page({ params }: PageProps) {
-  const post = getPostById(params.id);
+export default async function Page({ params }: PageProps) {
+  const post = await getPostById(params.id);
 
   if (!post) {
     notFound();
