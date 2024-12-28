@@ -7,14 +7,12 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { getPostById } from '@/utils/mdx';
 
-type Props = {
-  params: {
-    id: string;
-  };
+interface PageProps {
+  params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
-};
+}
 
-export default async function PostPage({ params }: Props) {
+export default function Page({ params }: PageProps) {
   const post = getPostById(params.id);
 
   if (!post) {
